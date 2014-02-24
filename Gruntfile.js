@@ -764,6 +764,8 @@ module.exports = function( grunt ) {
 
 						paths = grunt.util._.uniq( paths );
 
+						paths = [ "tests/unit/page/" ];
+
 						if ( jQueries.length ) {
 							paths.forEach( function( path ) {
 								versionedPaths = versionedPaths.concat( jQueries.map( function( jQVersion ) {
