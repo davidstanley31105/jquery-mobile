@@ -66,19 +66,20 @@
 		ok( $( "#b" ).hasClass( "ui-page-theme-" + btheme ) );
 	});
 
-	test( "Binding to pagebeforecreate and returning false prevents pagecreate event from firing" , function(){
+	test( "Binding to pagebeforecreate and returning false prevents pagecreate event from firing and classes from being applied to page" , function(){
+		console.log( "*** Begin flaky test" );
+		$.mobile.debugPageTests = true;
+
 		$( "#c" ).page();
 
-		console.log( "First flaky test: Checking cEvents[ 0 ]: " + cEvents[ 0 ] );
+		console.log( "*** Flaky test: Checking cEvents[ 0 ]: " + cEvents[ 0 ] );
 		deepEqual( cEvents[0], "pagebeforecreate", "First event is pagebeforecreate" );
 		deepEqual( !!cTargets[1], false, "There is no second event target" );
-	});
-
-	test( "Binding to pagebeforecreate and returning false prevents classes from being applied to page" , function(){
-		$( "#c" ).page();
-
 		ok( !$( "#c" ).hasClass( "ui-body-" + themedefault ) );
 		ok( !$( "#c" ).hasClass( "ui-page" ) );
+
+		$.mobile.debugPageTests = false;
+		console.log( "*** End flaky test" );
 	});
 
 	test( "links inside an ignored container do not enhance", function() {

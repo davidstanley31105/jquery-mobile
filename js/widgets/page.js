@@ -58,6 +58,9 @@ $.widget( "mobile.page", {
 
 	_create: function() {
 		// If false is returned by the callbacks do not create the page
+		if ( $.mobile.debugPageTests ) {
+			console.log( "*** " + this.element.attr( "id" ) + ": triggering beforecreate" );
+		}
 		if ( this._trigger( "beforecreate" ) === false ) {
 			return false;
 		}
