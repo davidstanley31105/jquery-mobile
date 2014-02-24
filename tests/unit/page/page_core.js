@@ -13,6 +13,7 @@
 		cTargets=[];
 
 	$( document ).bind( "pagebeforecreate pagecreate", function( e ){
+		console.log( "*** " + e.type + " on " + $( e.target ).attr( "id" ) + " ***" );
 		eventStack.push( e.type );
 		etargets.push( e.target );
 	});
