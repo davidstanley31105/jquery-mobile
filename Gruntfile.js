@@ -881,8 +881,6 @@ module.exports = function( grunt ) {
 		grunt.config.set( "versionSuffix", "-<%= pkg.version%>" );
 	});
 
-	grunt.registerTask( "lint", [ "jshint" ] );
-
 	grunt.registerTask( "changelog", ["changelog:create"] );
 
 	grunt.registerTask( "js", [ "requirejs", "concat:js" ] );
@@ -924,7 +922,6 @@ module.exports = function( grunt ) {
 	grunt.registerTask( "test",
 		[
 			"clean:testsOutput",
-			"jshint",
 			"config:fetchHeadHash",
 			"js:release",
 			"connect", "qunit:http"
