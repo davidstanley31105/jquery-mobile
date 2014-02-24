@@ -41,8 +41,3 @@ env:
   - TYPES=integration
     SUITES=navigation
     JQUERIES=git
-
-notifications:
-  irc:
-    channels:
-      - "chat.freenode.net#jqueryui-dev"
