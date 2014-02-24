@@ -19,6 +19,7 @@
 	});
 
 	$( "body" ).on("pagebeforecreate", "#c", function( e ){
+		console.log( "\n*** c-handler: pagebeforecreate on " + $( e.target ).attr( "id" ) );
 		cEvents.push( e.type );
 		cTargets.push( e.target );
 		return false;
@@ -68,6 +69,7 @@
 	test( "Binding to pagebeforecreate and returning false prevents pagecreate event from firing" , function(){
 		$( "#c" ).page();
 
+		console.log( "First flaky test: Checking cEvents[ 0 ]: " + cEvents[ 0 ] );
 		deepEqual( cEvents[0], "pagebeforecreate", "First event is pagebeforecreate" );
 		deepEqual( !!cTargets[1], false, "There is no second event target" );
 	});
