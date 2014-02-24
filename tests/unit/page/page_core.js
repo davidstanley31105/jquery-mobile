@@ -32,7 +32,7 @@
 	});
 
 	test( "pagebeforecreate fires before pagecreate", function(){
-		ok( eventStack[0] === "pagebeforecreate" );
+		deepEqual( eventStack[0], "pagebeforecreate", "First event is pagebeforecreate" );
 	});
 
 	test( "target of pagebeforecreate event was div #a", function(){
@@ -67,8 +67,8 @@
 	test( "Binding to pagebeforecreate and returning false prevents pagecreate event from firing" , function(){
 		$( "#c" ).page();
 
-		ok( cEvents[0] === "pagebeforecreate" );
-		ok( !cTargets[1] );
+		deepEqual( cEvents[0], "pagebeforecreate", "First event is pagebeforecreate" );
+		deepEqual( !!cTargets[1], false, "There is no second event target" );
 	});
 
 	test( "Binding to pagebeforecreate and returning false prevents classes from being applied to page" , function(){
